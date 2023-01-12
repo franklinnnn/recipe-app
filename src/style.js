@@ -294,9 +294,6 @@ export const Footer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  svg {
-    font-size: 12rem;
-  }
   div {
     display: flex;
     width: 50%;
@@ -306,6 +303,22 @@ export const Footer = styled.div`
   h3 {
     font-size: 1.2rem;
     line-height: 1.2rem;
+  }
+  a {
+    text-decoration: none;
+    justify-content: center;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    margin: -1rem 0 2rem 0;
+  }
+  p:hover {
+    text-decoration: underline;
+  }
+  img {
+    width: 8rem;
+    height: 8rem;
   }
   @media screen and (max-width: 425px) {
     width: 100%;

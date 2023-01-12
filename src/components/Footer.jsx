@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import * as Style from "../style";
 import { AiOutlineBarcode } from "react-icons/ai";
+import qr from "../assets/qr.png";
 
 const Footer = () => {
-  const [foodJoke, setFoodJoke] = useState("");
+  const [foodTrivia, setFoodTrivia] = useState("");
 
   const fetchJoke = async () => {
     const data = await fetch(
-      `https://api.spoonacular.com/food/jokes/random?apiKey=${process.env.REACT_APP_API_KEY}`
+      `https://api.spoonacular.com/food/trivia/random?apiKey=${process.env.REACT_APP_API_KEY}`
     );
-    const joke = await data.json();
-    setFoodJoke(joke.text);
-    console.log(joke);
+    const trivia = await data.json();
+    setFoodTrivia(trivia.text);
   };
 
   useEffect(() => {
@@ -21,12 +21,16 @@ const Footer = () => {
   let date = new Date().toLocaleDateString();
   let time = new Date().toLocaleTimeString();
 
-  console.log(foodJoke);
+  console.log(foodTrivia);
   return (
     <Style.Footer>
       <h3>Recipe Receipt</h3>
-      <AiOutlineBarcode />
-      <h3>{foodJoke}</h3>
+      <a href="https://github.com/franklinnnn/recipe-app" target="_blank">
+        <img src={qr} alt="qr-code" />
+        <p>GitHub</p>
+      </a>
+
+      <h3>{foodTrivia}</h3>
       <div>
         <h4>{date}</h4>
         <h4>{time}</h4>
